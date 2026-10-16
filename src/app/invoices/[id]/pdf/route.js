@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
-import pool from '../../../../../lib/db';
+import pool from '@/lib/db';
 import { cookies } from 'next/headers';
 import { jsPDF } from 'jspdf';
+import 'jspdf-autotable';
 
 export async function GET(request, { params }) {
   try {
@@ -100,7 +101,7 @@ export async function GET(request, { params }) {
     doc.setFontSize(10);
     doc.setTextColor(80, 80, 80);
     if (paymentMethod === 'Mvola') {
-      doc.text("P Veuillez effectuer le transfert Mvola au : +261 38 00 000 00", 14, finalY + 22);
+      doc.text("Veuillez effectuer le transfert Mvola au : +261 38 00 000 00", 14, finalY + 22);
     } else if (paymentMethod === 'Orange Money') {
       doc.text("Veuillez effectuer le transfert Orange Money au : +261 32 00 000 00", 14, finalY + 22);
     } else if (paymentMethod === 'Airtel Money') {
