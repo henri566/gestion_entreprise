@@ -10,12 +10,18 @@ export default function Home() {
         <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg">
           Gérez vos factures, clients et paiements en toute simplicité.
         </p>
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center gap-4 flex-wrap">
           <Link 
             href="/login" 
             className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
           >
             Se connecter
+          </Link>
+          <Link 
+            href="/register" 
+            className="px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition"
+          >
+            S'inscrire
           </Link>
           <Link 
             href="/dashboard" 

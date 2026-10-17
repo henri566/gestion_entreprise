@@ -1,4 +1,4 @@
-import pool from '../lib/db';
+import pool from '@/lib/db';
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import bcrypt from 'bcrypt';
@@ -16,8 +16,8 @@ export default function LoginPage() {
       const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
       
       if (result.rows.length === 0) {
-        console.error("Utilisateur non trouvé");
-        return;
+        console.error("Utilisateur non trouvé pour l'email :", email);
+        return; // Ici vous pouvez gérer l'affichage d'un message d'erreur
       }
 
       const user = result.rows[0];
@@ -40,11 +40,11 @@ export default function LoginPage() {
       });
 
     } catch (err) {
-      console.error("Erreur lors de la connexion :", err.message);
+      console.error("Erreur critique lors de la connexion :", err.message);
       return;
     }
 
-    // Rediriger vers la page des clients après connexion réussie
+    // 4. Redirection vers les clients après succès
     redirect('/clients');
   }
 
