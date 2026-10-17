@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import pool from '@/lib/db';
+import pool from '../../../lib/db';
 import { cookies } from 'next/headers';
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
